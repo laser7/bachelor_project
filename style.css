@@ -1,0 +1,24 @@
+#btn_farm{
+    width: 150px;
+    height: 150px;
+    background: url("farm.jpg") contain;
+    border-style: none;
+}
+#btn_moutain{
+    width: 150px;
+    height: 150px;
+    background: url("moutain.jpg") contain;
+    border-style: none;
+}
+#btn_river{
+    width: 150px;
+    height: 150px;
+    background: url("river.jpg") contain;
+    border-style: none;
+}
+#btn_city{
+    width: 150px;
+    height: 150px;
+    background: url("city.jpg") contain;
+    border-style: none;
+}
