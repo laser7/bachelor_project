@@ -1,0 +1,13 @@
+/*body{
+    background-image: url(farm_bcg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}*/
+img{
+    float:left;
+    margin-top:45px;
+}
+#canvas{
+    border: 1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
