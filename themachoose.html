@@ -5,18 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>choose the thema</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-    <h1>Choose on of the thema below</h1>
-
-    <a href="farm.html">
-            <button type="button" value="1" id="btn_farm">FARM</button> </a> 
-    <a href="mountain.html">
-            <button type="button" value="2" id="btn_moutain">MOUTAIN</button> </a> 
-    <a href="river.html">
-            <button type="button" value="3" id="btn_river">RIVER</button> </a> 
-    <a href="city.html">
-            <button type="button" value="4" id="btn_city">CITY</button> </a>            
+<body onload="init()">
+    <h1>Auswählen</h1>
+        <canvas id="chooseCanvas" width="1600" height="850" ></canvas>
+     
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="js/choose.js"></script>
 </body>
 </html>
