@@ -1,5 +1,108 @@
 
-var tree;
+    var stage;
+    function init(){
+        stage = new createjs.Stage("canvas");
+ 
+        var tree = new createjs.Bitmap("/img/apple.png");
+        tree.x = 50;
+        tree.y = 150;
+        tree.addEventListener("click",function(e){
+            swal("Wieviel Apfel habe ich?", {
+                buttons:{
+                    less:"5 ",
+                    right: {
+                        text: " 7 ",
+                        value: "right",
+                    },
+                    more:{
+                        text: " 8 ",
+                        value:"more",
+                    },
+                },
+            })
+            .then((value) =>{
+                switch(value){
+                    case "less" :
+                        swal("schaust du noch mal genau an?");
+                        break;
+                    case "right":
+                        swal("super gemacht!", "du hast richtig geantwortet","success");
+                       setTimeout(back,5000);
+                        break;
+                    default:
+                        swal("schaust du noch mal genau an?");
+                }
+            })
+        });
+
+        function back(){
+            window.location.href= "/themachoose.html";
+        }
+
+        stage.addChild(tree);
+ 
+        createjs.Ticker.setFPS(60);
+        createjs.Ticker.addEventListener('tick',update);
+    }
+ 
+ 
+    function update(event){
+        stage.update();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*var tree;
 var car;
 var house;
 var worker;
@@ -12,7 +115,7 @@ function startGame(){
     house = new component(120,120, "brown", 550,300);
     cloud = new component(80,30," #aed6f1 ",400,50);
     worker = new component(30,80," #FFC300 ", 290, 460);
-    background = new component(1200,800, "/img/farm.jpeg",0,0,"image");
+
 }
 var myGameArea = {
     canvas : document.getElementById('canvas'),
@@ -73,7 +176,7 @@ function component(width, height, color, x, y,type){
 }
 function updateGameArea(){
     myGameArea.clear();
-    background.update();
+
     if(myGameArea.x && myGameArea.y){
         if(car.clicked()){
             car.x += 10;
@@ -87,4 +190,4 @@ function updateGameArea(){
     worker.update();
     cloud.update();
 
-}
+} */

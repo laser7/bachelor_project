@@ -55,27 +55,27 @@ function init(){
 
 
     moutain.x = 810;
-    moutain.y = 170;
+    moutain.y = 100;
     moutain.addEventListener("click",function(e){
         window.location.href= "./html/moutain.html";
     });
 
 
     windmill.x = 1050;
-    windmill.y = 460;
+    windmill.y = 160;
     windmill.addEventListener("click",function(e){
         window.location.href= "./html/windmill.html";
     });
 
  
-    pig.x = 800;
+    pig.x = 1150;
     pig.y = 400;
     pig.addEventListener("click",function(e){
         window.location.href= "./html/pig.html";
     });
 
 
-    flower.x = 1200;
+    flower.x = 1350;
     flower.y = 600;
     flower.addEventListener("click",function(e){
         window.location.href= "./html/flower.html";
