@@ -40,6 +40,7 @@
         }
 
         stage.addChild(tree);
+
  
         createjs.Ticker.setFPS(60);
         createjs.Ticker.addEventListener('tick',update);

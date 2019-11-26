@@ -1,7 +1,22 @@
 var stage;
 function init(){
     stage = new createjs.Stage("canvas");
+    var txt = new createjs.Text("Klein", "25px Arial", "black");
+    txt.x = 300;
+    txt.y = 65;
+    var txt1 = new createjs.Text("Berg", "25px Arial", "black");
+    txt1.x = 500;
+    txt1.y = 65;
+    var txt2 = new createjs.Text("Frank", "25px Arial", "black");
+    txt2.x = 680;
+    txt2.y = 65;
+    var txt3 = new createjs.Text("Hermann", "25px Arial", "black");
+    txt3.x = 850;
+    txt3.y = 65;
 
+    var txt4 = new createjs.Text("Hi, ich bin Herr Hermann, kannst du mein Auto in der richtige Platz parken?", "35px Arial", "black");
+    txt4.x = 350;
+    txt4.y = 500;
     var park = new createjs.Shape();
     park.graphics.beginFill("white").drawRect(0, 0, 810, 30);
     park.x = 200;
@@ -75,6 +90,11 @@ function init(){
     stage.addChild(park2);
     stage.addChild(park3);
     stage.addChild(park4);
+    stage.addChild(txt);
+    stage.addChild(txt1);
+    stage.addChild(txt2);
+    stage.addChild(txt3);
+    stage.addChild(txt4);
     stage.addChild(man);
     stage.addChild(car);
 

@@ -1,0 +1,105 @@
+
+    var stage;
+    function init(){
+        stage = new createjs.Stage("canvas");
+ 
+      //  var tree = new createjs.Bitmap("/img/apple.png");
+     //   tree.x = 50;
+     //   tree.y = 150;
+     var temp;
+ 
+        var r = ['book', 'sun', 'cow', 'write', 'mouth','cup', 'fish','hundred','earth', 'clock', 'computer', 'robot','goat','lion','grapes','banana'];
+        　　temp=r[Math.round(Math.random()*(r.length-1))];
+        var txt = new createjs.Text("find the corresponding picture of  -"+temp+"-  below", "26px Times","black");
+        txt.x = 100;
+        txt.y = 250;
+
+        var a = temp;
+        var rightAn = new createjs.Bitmap("/img/"+a+".png");
+        rightAn.x = 400;
+        rightAn.y = 350;
+        rightAn.addEventListener("click",function(e){
+
+
+            swal("congratulation!","you are right","success");
+            setTimeout(reload,3000);
+        });
+
+
+        function reload(){
+            location.reload();
+        }
+        var false1 = new createjs.Bitmap("/img/"+r[Math.round(Math.random()*(r.length-1))]+".png");
+        false1.x = 600;
+        false1.y = 350;
+        false1.addEventListener("click",function(e){
+            swal("try again carefully?");
+        });
+    
+        var random = ['flower','windmill','pig','house','plane','guitar','icecream','pineapple','camera','bicycle','plant','like','watermelon','lemon'];
+       
+
+        var false2 = new createjs.Bitmap("/img/"+random[Math.round(Math.random()*(random.length-1))]+".png");
+        false2.x = 800;
+        false2.y = 350;
+
+        false2.addEventListener("click",function(e){
+            swal("try again carefully?");
+        });
+      
+        stage.addChild(txt);
+        stage.addChild(rightAn);
+        stage.addChild(false1);
+        stage.addChild(false2);
+
+ 
+        createjs.Ticker.setFPS(60);
+        createjs.Ticker.addEventListener('tick',update);
+    }
+ 
+ 
+    function update(event){
+        stage.update();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
