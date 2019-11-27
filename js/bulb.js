@@ -14,9 +14,13 @@
         txt.x = 100;
         txt.y = 250;
 
+        var position = ['400','600','800'];
+        position.sort(function(){
+            return Math.random()-0.5;
+        });
         var a = temp;
         var rightAn = new createjs.Bitmap("/img/"+a+".png");
-        rightAn.x = 400;
+        rightAn.x = position[0];
         rightAn.y = 350;
         rightAn.addEventListener("click",function(e){
 
@@ -30,7 +34,7 @@
             location.reload();
         }
         var false1 = new createjs.Bitmap("/img/"+r[Math.round(Math.random()*(r.length-1))]+".png");
-        false1.x = 600;
+        false1.x = position[1];
         false1.y = 350;
         false1.addEventListener("click",function(e){
             swal("try again carefully?");
@@ -40,7 +44,7 @@
        
 
         var false2 = new createjs.Bitmap("/img/"+random[Math.round(Math.random()*(random.length-1))]+".png");
-        false2.x = 800;
+        false2.x = position[2];
         false2.y = 350;
 
         false2.addEventListener("click",function(e){
