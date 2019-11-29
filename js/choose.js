@@ -19,7 +19,7 @@ function init(){
     var car = new createjs.Bitmap("/img/car.png");
     var bulb = new createjs.Bitmap("/img/bulb.png");
     var house = new createjs.Bitmap("/img/house.png");
-    var worker = new createjs.Bitmap("/img/worker.png");
+  //  var worker = new createjs.Bitmap("/img/worker.png");
     var moutain = new createjs.Bitmap("/img/mountain.png");
     var windmill = new createjs.Bitmap("/img/windmill.png");
     var pig = new createjs.Bitmap("/img/pig.png");
@@ -27,33 +27,33 @@ function init(){
 
 
     car.x = 300;
-    car.y = 500;
+    car.y = 450;
     car.addEventListener("click",function(e){
         window.location.href= "./html/car.html";
     });
 
 
-    bulb.x = 180;
-    bulb.y = 320;
+    bulb.x = 290;
+    bulb.y = 250;
     bulb.addEventListener("click",function(e){
         window.location.href= "./html/bulb.html";
     });
 
 
-    house.x = 400;
-    house.y = 170;
+    house.x = 499;
+    house.y = 90;
     house.addEventListener("click",function(e){
         window.location.href= "./html/house.html";
     });
 
- 
+ /*
     worker.x = 580;
     worker.y = 30;
     worker.addEventListener("click",function(e){
         window.location.href= "./html/worker.html";
     });
 
-
+*/
     moutain.x = 810;
     moutain.y = 100;
     moutain.addEventListener("click",function(e){
@@ -86,7 +86,7 @@ function init(){
     stage.addChild(car);
     stage.addChild(bulb);
     stage.addChild(house);
-    stage.addChild(worker);
+   // stage.addChild(worker);
     stage.addChild(moutain);
     stage.addChild(windmill);
     stage.addChild(pig);

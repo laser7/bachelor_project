@@ -1,5 +1,7 @@
 
-    var stage;
+  //   Ü ẞ Ö ä ö Ä ü 
+  
+  var stage;
     function init(){
         stage = new createjs.Stage("canvas");
  
