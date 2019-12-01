@@ -62,26 +62,30 @@ function init(){
         if(keyID === 37){
             img.src = "/img/carleft.png";
             car.x -= 30;
+          
             checkPosition(car.x,car.y);
         } else if(keyID === 38){
             img.src = "/img/cartop.png";
             car.y -= 30;
-            checkPosition(ar.x,car.y);
+           
+           checkPosition(car.x,car.y);
         } else if(keyID === 39){
             img.src = "/img/carright.png";
             car.x += 30;
-            checkPosition(ar.x,car.y);
+         
+            checkPosition(car.x,car.y);
         } else if (keyID === 40){
             img.src = "/img/cardown.png";
             car.y += 30;
-            checkPosition(ar.x,car.y);
+          
+            checkPosition(car.x,car.y);
         }
     }
 
-    function checkPosition(a,b){
-        if((910< a < 1080) && (90<b< 400)){
-            swal("super gemacht!", "du hast richtig geparkt","success");
-        }
+    function checkPosition(x, y){
+      if((810 < x )&&(x<980) && (90 < y )&&( y <230)){
+            swal("Good Job", "Du hast den richtige Parkplatz gefunden","success");
+       }
     }
 
     stage.addChild(park);

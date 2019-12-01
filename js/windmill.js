@@ -20,7 +20,7 @@
          world.x = 0;
          world.y = 0;
 
-   // CHina
+   // China
 
          var c1 = new createjs.Shape();
          c1.graphics.beginFill("red");
@@ -122,7 +122,7 @@
      var p = new createjs.Bitmap("/img/panda.jpeg");
      p.x = 160;
      p.y = 0;
-   //weltweite Bekanntheit erlangt. In älterer deutscher Literatur wird der Große Panda auch Bambusbär oder Prankenbär genannt. 
+   
      var pT = new createjs.Text("Der Große Panda (Ailuropoda melanoleuca), auch Riesenpanda oder Pandabär, ist eine Säugetierart aus der Familie der Bären. ", "10px Arial", "black");
      pT.x = 30;
      pT.y = 220;
