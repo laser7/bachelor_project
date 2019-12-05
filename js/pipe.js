@@ -6,8 +6,8 @@ class Pipe {
     this.up_mod = up_mod;//上水管中间部分
     this.down_pipe = down_pipe;
     this.down_mod = down_mod;
-    this.up_height = Math.floor(Math.random()*30);//随机生成上管体高度
-    this.down_height = (60 - this.up_height-20)*3;//保证所有上下水管距离相同
+    this.up_height = Math.floor(Math.random()*60);//随机生成上管体高度
+    this.down_height = (60 - this.up_height)*3;//保证所有上下水管距离相同
     this.posX = 300;//横坐标
     this.up_posY = this.up_height*3+this.up_pipe.height;//上水管纵坐标
     this.down_posY = 362-this.down_height;//下水管纵坐标
@@ -30,7 +30,7 @@ class Pipe {
   }
   //水管移动
   move() {
-    this.posX -= 5;
+    this.posX -= 8;
     this.drawMods();
     this.drawPipe();
   }

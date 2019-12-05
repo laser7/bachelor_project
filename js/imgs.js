@@ -27,15 +27,15 @@ var imgs = {
   scroe9:new Image(),
   //加载图片
   loadImg: function (fn) {
-    this.bg.src = '/img/bg.jpg';
-    this.grass.src = '/img/banner.jpg';
+    this.bg.src = '/img/bg20.png';
+    this.grass.src = '/img/bg21.png';
     this.title.src = '/img/head.jpg';
-    this.bird0.src = '/img/bird0.png';
-    this.bird1.src = '/img/bird1.png';
-    this.up_bird0.src = '/img/up_bird0.png';
-    this.up_bird1.src = '/img/up_bird1.png';
-    this.down_bird0.src = '/img/down_bird0.png';
-    this.down_bird1.src = '/img/down_bird1.png';
+    this.bird0.src = '/img/sonic-straight.png';
+    this.bird1.src = '/img/sonic-straight2.png';
+    this.up_bird0.src = '/img/sonic-up1.png';
+    this.up_bird1.src = '/img/sonic-up2.png';
+    this.down_bird0.src = '/img/sonic-down1.png';
+    this.down_bird1.src = '/img/sonic-down2.png';
     this.startBtn.src = '/img/start.jpg';
     this.up_pipe.src = '/img/up_pipe.png';
     this.up_mod.src = '/img/up_mod.png';
