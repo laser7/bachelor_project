@@ -32,16 +32,33 @@
           bottom2.x = 1300;
         }
       }
-
+              
+      var dataSonic = new createjs.SpriteSheet({
+        "images": ["/img/sonic.png"],
+        "frames": {"regX": 0, "height": 64, "count": 9, "regY": 0, "width": 64},
+        "animations": {
+          "up": [0,2,"up"],
+          "straight": [3, 5, "straight"],
+          "down": [6, 8, "down"]
+        }
+      });
+      sonicHead = new createjs.Sprite(dataSonic, "straight");  
+      sonicHead.x = 450;
+      sonicHead.y = 230;
+      var head = new createjs.Bitmap("/img/head.png");
+      head.x = 180;
+      head.y = 100;
         var start = new createjs.Bitmap("/img/start.jpg");
         start.x = 550;
-        start.y = 300;
+        start.y = 350;
         start.addEventListener("click",function(e){
         
         
         stage.removeChild(startSeite);
+        
      
        playSeite.addChild(sonicN);
+    
        stage.addChild(playSeite);
        stage.addChild(pipe1);
        stage.addChild(pipe2);
@@ -49,6 +66,7 @@
        
        var flyTimer = window.setInterval(fly,24);
        var pipeTimer = window.setInterval(pipeMove,60);
+       var scoreTimer = window.setInterval(showScore,50);
     //   var crashTimer = window.setInterval(crashTest,60);
      
       
@@ -89,6 +107,9 @@
            crashTest(pipeUp,pipeDown);
            crashTest(pipeUp2,pipeDown2);
            crashTest(pipeUp3,pipeDown3);
+           skipTest(pipeUp);
+           skipTest(pipeUp2);
+           skipTest(pipeUp3);
         } }
 
         window.addEventListener('click', mausOper, true);
@@ -98,6 +119,9 @@
           crashTest(pipeUp,pipeDown);
           crashTest(pipeUp2,pipeDown2);
           crashTest(pipeUp3,pipeDown3);
+          skipTest(pipeUp);
+          skipTest(pipeUp2);
+          skipTest(pipeUp3);
         }
 
         function fly(){
@@ -112,16 +136,40 @@
           
        
         }
+        var deadSeite = new createjs.Container();
+        deadSeite.addChild(gameover);
+        deadSeite.addChild(restart);
+    
+        deadSeite.visible = false;
         function dead(){
           sonicN.alive = false;
+          pipe1.visible = false;
+          pipe2.visible = false;
+          pipe3.visible = false;
+          playSeite.visible = false;
+          deadSeite.visible = true;
+
         }
+        function reload(){
+          location.reload();
+      }
+        var gameover = new createjs.Bitmap("/img/gameover.png");
+        gameover.x = 450;
+        gameover.y = 100;
+        var restart = new createjs.Bitmap("/img/refresh.png");
+        restart.x = 540;
+        restart.y = 400;
+        restart.addEventListener('click',reload);
+
+
+      
 
 // pipe Teil
     var pipe1 = new createjs.Container();
     var pipe2 = new createjs.Container();
     var pipe3 = new createjs.Container();
    
-
+   
 
       var px = 500;
       var px2 = 900;
@@ -139,13 +187,27 @@
      var downHeight3 = (60 - upHeight3)*3;
 
       var pipeUp = new createjs.Bitmap("/img/pipes-up.png");  // nach unten
+      pipeUp.hadskipped = false;
+      pipeUp.skipchange = false;
       var pipeUp2 = new createjs.Bitmap("/img/pipes-up.png"); 
+      pipeUp2.hadskipped = false;
+      pipeUp2.skipchange = false;
       var pipeUp3 = new createjs.Bitmap("/img/pipes-up.png"); 
+      pipeUp3.hadskipped = false;
+      pipeUp3.skipchange = false;
      
-
+      
       var pipeDown = new createjs.Bitmap("/img/pipes-down.png"); 
+      pipeDown.hadskipped = false;
+      pipeDown.skipchange = false;
       var pipeDown2 = new createjs.Bitmap("/img/pipes-down.png"); 
+      pipeDown2.hadskipped = false;
+      pipeDown2.skipchange = false;
       var pipeDown3 = new createjs.Bitmap("/img/pipes-down.png"); 
+      pipeDown3.hadskipped = false;
+      pipeDown3.skipchange = false;
+ 
+
      
 
    //var pipeBody = new createjs.Bitmap("/img/pipes-body.png"); 
@@ -209,13 +271,44 @@
        crashTest(pipeUp,pipeDown);
        crashTest(pipeUp2,pipeDown2);
        crashTest(pipeUp3,pipeDown3);
+       skipTest(pipeUp);
+       skipTest(pipeUp2);
+       skipTest(pipeUp3);
+
+       // shouw the score 
+ 
+     
         }
-    
+        var score = 0;
+        var note = new createjs.Text("score: 0", "25px Arial", "black");
+        note.x =100;
+        note.y = 100;
+        function showScore(){
+          
+          note.text = "Score: "+Math.floor(score/8);
+       
+        }
         function crashTest(a,b){
           if((sonicN.x+ 30 > a.x)&&(sonicN.x< a.x + 60)){
-            if((sonicN.y<a.y)|| (sonicN.y+30 > b.y)){
-             alert("crashed");
+            if((sonicN.y<a.y+60)|| (sonicN.y+30 > b.y)){
+             dead();
+            } else if(sonicN.y > 600){
+              dead();
+            } else if(sonic.y < 0){
+              dead();
             }
+          }
+        }
+        function skipTest(d){
+         var v = 0;
+          if(sonicN.x > d.x + 60){
+            d.hadskipped = true;
+            if(!d.skipchange && d.hadskipped){
+              
+              score += 1;
+          //    d.skipchange = true;
+            }
+
           }
         }
 
@@ -261,8 +354,11 @@
         stage.addChild(bottom);
         stage.addChild(bottom2);
         startSeite.addChild(start);
+        startSeite.addChild(head);
+        startSeite.addChild(sonicHead);
         stage.addChild(startSeite);
-       
+        playSeite.addChild(note);
+    
       pipe1.addChild(pipeUp);
       pipe1.addChild(pipeDown);
       pipe2.addChild(pipeUp2);
@@ -271,7 +367,10 @@
       pipe3.addChild(pipeDown3);
    //  pipe1.addChild(pipeBody);
     //   pipe2.addChild(pipeBody2);
-
+ //     stage.addChild(deadSeite);
+      deadSeite.addChild(gameover);
+      deadSeite.addChild(restart);
+      stage.addChild(deadSeite);
        
 
       //  playSeite.addChild(sonicN);
