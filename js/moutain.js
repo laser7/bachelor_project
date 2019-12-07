@@ -48,7 +48,10 @@
        stage.addChild(pipe3);  
        
        var flyTimer = window.setInterval(fly,24);
-       var Timer = window.setInterval(pipeMove,1000);
+       var pipeTimer = window.setInterval(pipeMove,60);
+    //   var crashTimer = window.setInterval(crashTest,60);
+     
+      
       
        
      });
@@ -81,21 +84,32 @@
         var keyID = e.keyCode ? e.keyCode :e.which;
         if(keyID === 32){
            sonicN.speed -=80;
+      
+           
+           crashTest(pipeUp,pipeDown);
+           crashTest(pipeUp2,pipeDown2);
+           crashTest(pipeUp3,pipeDown3);
         } }
 
         window.addEventListener('click', mausOper, true);
 
         function mausOper(){
           sonicN.speed -=80;
+          crashTest(pipeUp,pipeDown);
+          crashTest(pipeUp2,pipeDown2);
+          crashTest(pipeUp3,pipeDown3);
         }
 
         function fly(){
-          sonicN.y = 0;
+          sonicN.y = 200;
           sonicN.y+= sonicN.speed;
+
           sonicN.speed+=4;
+          crashTest();
           if(sonicN.y < 1){
             speed = 6;
           }
+          
        
         }
         function dead(){
@@ -109,9 +123,9 @@
    
 
 
-      var px = 0;
-      var px2 = 600;
-      var px3 = 900;
+      var px = 500;
+      var px2 = 900;
+      var px3 = 1300;
      // var pyUp, pyDown;
       var upHeight = Math.floor(Math.random()*60);
       var downHeight = (60 - upHeight)*3;
@@ -134,62 +148,101 @@
       var pipeDown3 = new createjs.Bitmap("/img/pipes-down.png"); 
      
 
-      var pipeBody = new createjs.Bitmap("/img/pipes-body.png"); 
-      var pipeBody1 = new createjs.Bitmap("/img/pipes-body.png"); 
+   //var pipeBody = new createjs.Bitmap("/img/pipes-body.png"); 
+   //   var pipeBody1 = new createjs.Bitmap("/img/pipes-body.png"); 
       var pipeBody2 = new createjs.Bitmap("/img/pipes-body.png"); 
       var pipeBody3 = new createjs.Bitmap("/img/pipes-body.png"); 
       var pipeBody4 = new createjs.Bitmap("/img/pipes-body.png"); 
       var pipeBody5 = new createjs.Bitmap("/img/pipes-body.png"); 
       
+      function newRandom(){
+        var a =  Math.floor(Math.random()*60);
+        upHeight = a;
+        downHeight = (60 - upHeight)*3;
+        }
+        function newRandom2(){
+          var b =  Math.floor(Math.random()*60);
+          upHeight2 = b;
+          downHeight2 = (60 - upHeight2)*3;
+        }
+        function newRandom3(){
+          var c =  Math.floor(Math.random()*60);
+          upHeight3 = c;
+          downHeight3 = (60 - upHeight3)*3;
+        }
+
      function pipeMove(){
-      
+    
+    
        px -= 20;
        if(px<0){
-    
-         px = 1000;
+        var numTimer = window.setTimeout(newRandom,10);
+        px = 1300;
+        
+       // newRandom();
        }
        px2 -= 20;
        if(px2<0){
-         px2 = 1000;
+        var numTimer2 = window.setTimeout(newRandom2,10);
+         px2 = 1300;
        }
        px3 -= 20;
        if(px3<0){
-         px3 = 1000;
+        var numTimer3 = window.setTimeout(newRandom3,10);
+         px3 = 1300;
        }
-      // pyUp = upHeight*3 + pipeUp.height;
-      // pyDown = 540- downHeight;
+    
           pipeUp.x = px;
-          pipeUp.y = (Math.floor(Math.random()*60))*3;
+          pipeUp.y = upHeight*3;
         pipeUp2.x = px2;
           pipeUp2.y = upHeight2*3;
           pipeUp3.x = px3;
           pipeUp3.y = upHeight3*3;
      
           pipeDown.x = px;
-          pipeDown.y = 580 - (60 - (Math.floor(Math.random()*60))*3)*3;
+          pipeDown.y = 580 - downHeight;
           pipeDown2.x = px2;
           pipeDown2.y = 580 - downHeight2;
           pipeDown3.x = px3;
           pipeDown3.y = 580 - downHeight3;
-   
-          for(var i = 0; i < pipeUp.y/3;i++){
+  
+       crashTest(pipeUp,pipeDown);
+       crashTest(pipeUp2,pipeDown2);
+       crashTest(pipeUp3,pipeDown3);
+        }
+    
+        function crashTest(a,b){
+          if((sonicN.x+ 30 > a.x)&&(sonicN.x< a.x + 60)){
+            if((sonicN.y<a.y)|| (sonicN.y+30 > b.y)){
+             alert("crashed");
+            }
+          }
+        }
+
+        function drawBody(){
+          for(var i = 0; i < upHeight;i++){
+            var pipeBody = new createjs.Bitmap("/img/pipes-body.png"); 
             pipeBody.x = px;
-            pipeBody.y = i*5;
-            pipe1.addChild(pipeBody);
+           pipeBody.y = i*3;
+           pipe1.addChild(pipeBody);
+
+            
           }
           for(var i = 0; i < upHeight2;i++){
-            pipeBody2.x = px2;
-            pipeBody2.y = i*5;
-            pipe2.addChild(pipeBody2);
+            var pipeBody2 = new createjs.Bitmap("/img/pipes-body.png"); 
+            pipeBody2.x = px;
+           pipeBody2.y = i*3;
+           pipe2.addChild(pipeBody2);
+
           }
           for(var i = 0; i < upHeight3;i++){
             pipeBody4.x = px3;
-            pipeBody4.y = i*5;
+            pipeBody4.y = i*3;
             pipe3.addChild(pipeBody4);
           }
-          for(var z = 0; z < (60 - pipeUp.y/3)*3;z++){
+          for(var z = 0; z < downHeight;z++){
             pipeBody1.x = px;
-            pipeBody1.y = 580-(60 - pipeUp.y/3)*3 + pipeDown.height+z;
+            pipeBody1.y = 580-downHeight2 + pipeDown.height+z;
             pipe1.addChild(pipeBody1);
           }
           for(var z = 0; z < downHeight2;z++){
@@ -203,10 +256,7 @@
             pipe3.addChild(pipeBody5);
           }
    
-      
-  
         }
-
         stage.addChild(bg);
         stage.addChild(bottom);
         stage.addChild(bottom2);
@@ -219,8 +269,8 @@
       pipe2.addChild(pipeDown2);
       pipe3.addChild(pipeUp3);
       pipe3.addChild(pipeDown3);
-     //  playSeite.addChild(pipeBody);
-       //playSeite.addChild(pipeBody1);
+   //  pipe1.addChild(pipeBody);
+    //   pipe2.addChild(pipeBody2);
 
        
 
