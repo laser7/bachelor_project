@@ -209,13 +209,27 @@
  
 
      
+      // pipe up body
+     var pipeBody = new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody1 = new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody2 = new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody3 = new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody4 = new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody5 = new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody6 = new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody7 = new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody8 = new createjs.Bitmap("/img/pipesbody.png"); 
+     // pipe down body
+     var pipeBody9 = new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody10 = new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody11 = new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody12= new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody13= new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody14= new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody15= new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody16= new createjs.Bitmap("/img/pipesbody.png"); 
+     var pipeBody17= new createjs.Bitmap("/img/pipesbody.png"); 
 
-   //var pipeBody = new createjs.Bitmap("/img/pipes-body.png"); 
-   //   var pipeBody1 = new createjs.Bitmap("/img/pipes-body.png"); 
-      var pipeBody2 = new createjs.Bitmap("/img/pipes-body.png"); 
-      var pipeBody3 = new createjs.Bitmap("/img/pipes-body.png"); 
-      var pipeBody4 = new createjs.Bitmap("/img/pipes-body.png"); 
-      var pipeBody5 = new createjs.Bitmap("/img/pipes-body.png"); 
       
       function newRandom(){
         var a =  Math.floor(Math.random()*60);
@@ -267,7 +281,97 @@
           pipeDown2.y = 580 - downHeight2;
           pipeDown3.x = px3;
           pipeDown3.y = 580 - downHeight3;
-  
+
+
+           //up body
+          pipeBody.x = px;
+          pipeBody.y =  0;
+          pipeBody1.x = px;
+          pipeBody1.y = upHeight;
+          pipeBody1.visible = false;
+          pipeBody2.x =px;
+          pipeBody2.y = upHeight*2;
+          pipeBody2.visible = false;
+          if(upHeight*3>58){
+            pipeBody1.visible = true;
+            pipeBody2.visible = true;
+          } 
+
+          pipeBody3.x = px2;
+          pipeBody3.y =  0;
+          pipeBody4.x = px2;
+          pipeBody4.y = upHeight2;
+          pipeBody4.visible = false;
+          pipeBody5.x =px2;
+          pipeBody5.y = upHeight2*2;
+          pipeBody5.visible = false;
+          if(upHeight2*3>58){
+            pipeBody4.visible = true;
+            pipeBody5.visible = true;
+          } 
+
+          pipeBody6.x = px3;
+          pipeBody6.y =  0;
+          pipeBody7.x = px3;
+          pipeBody7.y = upHeight3;
+          pipeBody7.visible = false;
+          pipeBody8.x =px3;
+          pipeBody8.y = upHeight3*2;
+          pipeBody8.visible = false;
+          if(upHeight3*3>58){
+            pipeBody7.visible = true;
+            pipeBody8.visible = true;
+          } 
+          // down body
+
+          pipeBody9.x =px;
+          pipeBody9.y = 580-downHeight+90;
+
+          pipeBody10.x = px;
+          pipeBody10.y = 580-downHeight+148;
+          pipeBody10.visible = false;
+
+          pipeBody11.x = px;
+          pipeBody11.y  = 580-58;
+          pipeBody11.visible = false;
+
+          if(580-downHeight+90<580){
+            pipeBody10.visible = true;
+            pipeBody11.visible = true;
+          }
+
+          pipeBody12.x =px2;
+          pipeBody12.y = 580-downHeight2+90;
+
+          pipeBody13.x = px2;
+          pipeBody13.y = 580-downHeight2+148;
+          pipeBody13.visible = false;
+
+          pipeBody14.x = px2;
+          pipeBody14.y  = 580-58;
+          pipeBody14.visible = false;
+
+          if(580-downHeight2+90<580){
+            pipeBody13.visible = true;
+            pipeBody14.visible = true;
+          }
+
+          pipeBody15.x =px3;
+          pipeBody15.y = 580-downHeight3+90;
+
+          pipeBody16.x = px3;
+          pipeBody16.y = 580-downHeight3+148;
+          pipeBody16.visible = false;
+
+          pipeBody17.x = px3;
+          pipeBody17.y  = 580-58;
+          pipeBody17.visible = false;
+
+          if(580-downHeight3+90<580){
+            pipeBody16.visible = true;
+            pipeBody17.visible = true;
+          }
+
        crashTest(pipeUp,pipeDown);
        crashTest(pipeUp2,pipeDown2);
        crashTest(pipeUp3,pipeDown3);
@@ -312,44 +416,9 @@
           }
         }
 
-        function drawBody(){
-          for(var i = 0; i < upHeight;i++){
-            var pipeBody = new createjs.Bitmap("/img/pipes-body.png"); 
-            pipeBody.x = px;
-           pipeBody.y = i*3;
-           pipe1.addChild(pipeBody);
-
-            
-          }
-          for(var i = 0; i < upHeight2;i++){
-            var pipeBody2 = new createjs.Bitmap("/img/pipes-body.png"); 
-            pipeBody2.x = px;
-           pipeBody2.y = i*3;
-           pipe2.addChild(pipeBody2);
-
-          }
-          for(var i = 0; i < upHeight3;i++){
-            pipeBody4.x = px3;
-            pipeBody4.y = i*3;
-            pipe3.addChild(pipeBody4);
-          }
-          for(var z = 0; z < downHeight;z++){
-            pipeBody1.x = px;
-            pipeBody1.y = 580-downHeight2 + pipeDown.height+z;
-            pipe1.addChild(pipeBody1);
-          }
-          for(var z = 0; z < downHeight2;z++){
-            pipeBody3.x = px2;
-            pipeBody3.y = 580-downHeight2 + pipeDown2.height+z;
-            pipe2.addChild(pipeBody3);
-          }
-          for(var z = 0; z < downHeight3;z++){
-            pipeBody5.x = px3;
-            pipeBody5.y = 580-downHeight3 + pipeDown3.height+z;
-            pipe3.addChild(pipeBody5);
-          }
-   
-        }
+  
+  
+        
         stage.addChild(bg);
         stage.addChild(bottom);
         stage.addChild(bottom2);
@@ -361,11 +430,29 @@
     
       pipe1.addChild(pipeUp);
       pipe1.addChild(pipeDown);
+      pipe1.addChild(pipeBody);
+      pipe1.addChild(pipeBody1);
+      pipe1.addChild(pipeBody2);
+      pipe1.addChild(pipeBody9);
+      pipe1.addChild(pipeBody10);
+      pipe1.addChild(pipeBody11);
       pipe2.addChild(pipeUp2);
       pipe2.addChild(pipeDown2);
+      pipe2.addChild(pipeBody3);
+      pipe2.addChild(pipeBody4);
+      pipe2.addChild(pipeBody5);
+      pipe2.addChild(pipeBody12);
+      pipe2.addChild(pipeBody13);
+      pipe2.addChild(pipeBody14);
       pipe3.addChild(pipeUp3);
       pipe3.addChild(pipeDown3);
-   //  pipe1.addChild(pipeBody);
+      pipe3.addChild(pipeBody6);
+      pipe3.addChild(pipeBody7);
+      pipe3.addChild(pipeBody8);
+      pipe3.addChild(pipeBody15);
+      pipe3.addChild(pipeBody16);
+      pipe3.addChild(pipeBody17);
+    
     //   pipe2.addChild(pipeBody2);
  //     stage.addChild(deadSeite);
       deadSeite.addChild(gameover);
