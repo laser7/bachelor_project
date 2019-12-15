@@ -7,6 +7,13 @@
         var playSeite = new createjs.Container();
 
      //   startseite und Seite wechseln
+
+     var t = new createjs.Bitmap("/img/raphael.png");
+     t.x = 1050;
+     t.y = 450;
+     t.addEventListener("click",function(e){
+    swal("Spielregeln", "Klicken Sie mit der linken Maustaste/ Leertaste der Tastatur, um die Flughöhe des Sonic zu steuern. Vermeiden Sie Hindernisse während des Fluges. Ich wünsche die Highscores im Spiel!")
+  });
  
           var bg = new createjs.Bitmap("/img/bg20.png");
          bg.x = 0;
@@ -53,7 +60,7 @@
         start.y = 350;
         start.addEventListener("click",function(e){
         
-        
+       
         stage.removeChild(startSeite);
         
      
@@ -425,6 +432,7 @@
         startSeite.addChild(start);
         startSeite.addChild(head);
         startSeite.addChild(sonicHead);
+        startSeite.addChild(t);
         stage.addChild(startSeite);
         playSeite.addChild(note);
     

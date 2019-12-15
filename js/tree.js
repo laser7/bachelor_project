@@ -8,6 +8,12 @@
         var bg = new createjs.Bitmap("/img/bg57.jpg");
         bg.x = 0;
         bg.y = 0;
+        var donate = new createjs.Bitmap("/img/lpdonate.png");
+        donate.x = 1450;
+        donate.y = 720;
+        donate.addEventListener("click",function(e){
+            swal("Spielregeln", "Klicken Sie mit der linken Maustaste, um Ereignisse zu untersuchen, die in der Szene ausgelöst werden können!")
+          });
        
         var tree = new createjs.Bitmap("/img/lptree.png");
         tree.x =50;
@@ -254,7 +260,7 @@
         app12.x = 1100;
         app12.y = 570;
         var l = arr1[Math.floor(Math.random()*arr1.length)];
-        app12.visible = true;  //l
+        app12.visible = l;  //l
         if(l =='1'){
             test+=1;
         }
@@ -262,7 +268,7 @@
         app13.x = 1180;
         app13.y = 550;
         var m = arr1[Math.floor(Math.random()*arr1.length)];
-        app13.visible = true;   //m
+        app13.visible = m;   //m
         if(m =='1'){
             test+=1;
         }
@@ -270,7 +276,7 @@
         app14.x = 1210;
         app14.y = 560;
          var z = arr1[Math.floor(Math.random()*arr1.length)];
-        app14.visible = true;      //z
+        app14.visible = z;      //z
         if(z =='1'){
             test+=1;
         }
@@ -290,7 +296,7 @@
         rabbit.x = 1280;
         rabbit.y = 430;
         rabbit.addEventListener("click",function(e){
-            swal("Wieviel Karrote habe ich verloren?"+num, {
+            swal("Wieviel Karrote habe ich verloren?", {
                 buttons:{
                     less: {
                         text: num+2,
@@ -313,7 +319,7 @@
                         break;
                     case "right":
                         swal("super gemacht!", "du hast richtig geantwortet","success");
-                     //  setTimeout(back,5000);
+                       setTimeout(back,5000);
                         break;
                     default:
                         swal("schaust du noch mal genau an?");
@@ -397,7 +403,49 @@
        num +=1;
        }
         
+
+       // reading
+
+       var read = new createjs.Bitmap("/img/read3.png");
+       read.x = 500;
+       read.y = 610;
+       read.addEventListener("click",function(e){
+        window.location.href= "/html/bulb.html";
+    });
+
+    var park = new createjs.Bitmap("/img/car22.png");
+    park.x = 300;
+    park.y = 410;
+   
+    park.addEventListener("click",function(e){
+     window.location.href= "/html/car.html";
+ });
+
+
+    var img = new Image();
+    img.src = "/img/thunder.png";
+    
+     var cloud = new createjs.Bitmap(img);
+    
+    cloud.x = 975;
+    cloud.y = -5;
+    cloud.addEventListener("click",function(e){
+       cloud.x += 100;
+       if(cloud.x > 1100 || cloud.x < 700){
+           img.src = "/img/cloud.png";
+       } else{
+        img.src = "/img/thunder.png";
+       }
+     
+       if(cloud.x > 1200){
+           cloud.x = 100;
+       }
+    });
+
+
+
         stage.addChild(bg);
+        stage.addChild(donate);
         stage.addChild(tree);
         stage.addChild(tree1);
         stage.addChild(tree2);
@@ -428,6 +476,10 @@
         stage.addChild(c6);
         stage.addChild(c7);
         stage.addChild(c8);
+
+        stage.addChild(read);
+        stage.addChild(park);
+        stage.addChild(cloud);
  
         createjs.Ticker.setFPS(60);
         createjs.Ticker.addEventListener('tick',update);
