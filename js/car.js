@@ -20,9 +20,7 @@ function init(){
     back.addEventListener("click",function(e){
        window.location.href= "/html/tree.html";
     });
-    var txt4 = new createjs.Text("Hi, ich bin Herr Hermann, kannst du mein Auto in der richtige Platz parken?", "35px Arial", "black");
-    txt4.x = 350;
-    txt4.y = 500;
+    
     var park = new createjs.Shape();
     park.graphics.beginFill("white").drawRect(0, 0, 810, 30);
     park.x = 200;
@@ -53,6 +51,7 @@ function init(){
     man.x = 1200;
     man.y = 550;
     man.addEventListener("click",function(e){
+        swal("Spielregeln","Hi, ich bin Herr Hermann, kannst du mein Auto in der richtige Platz parken ? und nicht vergessen, bevor du startest, waehlen ein Mode aus");
     });
 
 
@@ -92,7 +91,131 @@ function init(){
       if((810 < x )&&(x<980) && (90 < y )&&( y <230)){
             swal("Good Job", "Du hast den richtige Parkplatz gefunden","success");
        }
+       if( b == 1 || c == 1 ){
+       if(cone.x < x+110 && cone.x +70 > x ){
+           if( cone.y  < y+90  && cone.y + 70 > y ){
+            crashed();
+           }
+           
+       }
     }
+    if(c == 1){
+       if(rock.x < x+110 && rock.x +70 > x ){
+           if( rock.y  <y+90 && rock.y + 70 > y){
+            crashed();
+           }
+        }
+    }
+    if(a ==1 || b==1 || c==1){
+    if(barrier.x < x+110 && barrier.x +80 > x  ){
+        if(barrier.y  <y+90 && barrier.y + 80 > y){
+            crashed();
+        }
+    }
+    }
+    if(c == 1){
+    if(barrier1.x < x+110 && barrier1.x +80 > x  ){
+        if(barrier1.y  <y+90 && barrier1.y + 80 > y){
+            crashed();
+        }
+    }
+    }
+    if(a ==1 || b==1 || c==1){
+    if(hydrant.x < x+110 && hydrant.x +70 > x ){
+        if(hydrant.y  <y+90 && hydrant.y + 70 > y ){
+            crashed();
+        }
+    }
+    }
+    if( b==1 || c==1){
+    if(ob.x < x+110 && ob.x +70 > x  ){
+        if(ob.y  <y+90 && ob.y + 70 > y){
+            crashed();
+        }
+    }
+ }
+    }
+
+
+    function crashed(){
+        swal("Crashed","please restart");
+      var carTimemr = setTimeout(carReturn,2000);
+
+    }
+    function carReturn(){
+        img.src = "/img/cartop.png";
+        car.x = 400;
+        car.y = 700;
+
+    }
+   
+    var rock = new createjs.Bitmap("/img/caveB.png");
+    rock.x = 200;
+    rock.y = 400;
+    rock.visible = true;
+
+    var barrier = new createjs.Bitmap("/img/barrier.png");
+    barrier.x = 250;
+    barrier.y = 750;
+    barrier.visible = true;
+    var barrier1 =new createjs.Bitmap("/img/barrier1.png");
+    barrier1.x = 320;
+    barrier1.y = 560;
+    barrier1.visible = true;
+    var cone = new createjs.Bitmap("/img/cone.png");
+    cone.x = 600;
+    cone.y = 450; 
+    cone.visible = true;
+    var hydrant = new createjs.Bitmap("/img/hydrant.png");
+    hydrant.x = 930;
+    hydrant.y = 400;
+    hydrant.visible = true;
+    var ob = new createjs.Bitmap("/img/obstacle.png");
+    ob.x = 750;
+    ob.y = 700;
+    ob.visible = true;
+    var a =1, b=1, c=1;
+    var easy = new createjs.Bitmap("/img/easy.jpg");
+    easy.x = 1300;
+    easy.y = 100;
+    easy.addEventListener("click",function(e){
+        a = 1;
+        b = 2;
+        c = 2;
+        ob.visible = false;
+        cone.visible = false;
+        barrier1.visible = false;
+        rock.visible = false;
+    });
+    var medium = new createjs.Bitmap("/img/medium.jpg");
+    medium.x = 1300;
+    medium.y = 250;
+    medium.addEventListener("click",function(e){
+        a =2;
+        b= 1;
+        c = 2;
+        hydrant.visible = true;
+        barrier.visible = true;
+        ob.visible = true;
+        cone.visible = true;
+        barrier1.visible = false;
+        rock.visible = false;
+    });
+    var hard = new createjs.Bitmap("/img/hard.jpg");
+    hard.x = 1300;
+    hard.y = 400;
+    hard.addEventListener("click",function(e){
+        a=2;
+        b = 2;
+        c = 1;
+        hydrant.visible = true;
+        barrier.visible = true;
+        ob.visible = true;
+        cone.visible = true;
+        barrier1.visible = true;
+        rock.visible = true;
+    });
+
 
     stage.addChild(park);
     stage.addChild(back);
@@ -105,9 +228,19 @@ function init(){
     stage.addChild(txt1);
     stage.addChild(txt2);
     stage.addChild(txt3);
-    stage.addChild(txt4);
+   
     stage.addChild(man);
     stage.addChild(car);
+    stage.addChild(rock);
+
+    stage.addChild(barrier);
+    stage.addChild(barrier1);
+    stage.addChild(cone);
+    stage.addChild(hydrant);
+    stage.addChild(ob);
+    stage.addChild(easy);
+    stage.addChild(medium);
+    stage.addChild(hard);
 
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener('tick',update);

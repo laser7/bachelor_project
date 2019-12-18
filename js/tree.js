@@ -121,7 +121,7 @@
         tree3.x = 600;
         tree3.y = 440;
         tree3.addEventListener("click",function(e){
-            swal("Wieviel Apfel haben Sie gesehen?", {
+            swal(" Q1 : Wieviel Apfel haben Sie gesehen?", {
                 buttons:{
                     less: {
                         text: test-2,
@@ -158,7 +158,7 @@
         apple.y = 620;
        var a = arr1[Math.floor(Math.random()*arr1.length)];
        apple.visible = a;
- 
+        
        
         var test = 0;
         if(a=='1'){
