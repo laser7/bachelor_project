@@ -14,6 +14,12 @@ function init(){
     txt3.x = 850;
     txt3.y = 65;
 
+    var back = new createjs.Bitmap("/img/left.png");
+    back.x = 1400;
+    back.y = 10;
+    back.addEventListener("click",function(e){
+       window.location.href= "/html/tree.html";
+    });
     var txt4 = new createjs.Text("Hi, ich bin Herr Hermann, kannst du mein Auto in der richtige Platz parken?", "35px Arial", "black");
     txt4.x = 350;
     txt4.y = 500;
@@ -89,6 +95,7 @@ function init(){
     }
 
     stage.addChild(park);
+    stage.addChild(back);
     stage.addChild(park5);
     stage.addChild(park1);
     stage.addChild(park2);

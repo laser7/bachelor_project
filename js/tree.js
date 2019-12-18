@@ -12,7 +12,7 @@
         donate.x = 1450;
         donate.y = 720;
         donate.addEventListener("click",function(e){
-            swal("Spielregeln", "Klicken Sie mit der linken Maustaste, um Ereignisse zu untersuchen, die in der Szene ausgelöst werden können!")
+            swal("Spielregeln", "Klicken Sie mit der linken Maustaste, um Ereignisse zu untersuchen, die in der Szene ausgelöst werden können!");
           });
        
         var tree = new createjs.Bitmap("/img/lptree.png");
@@ -296,112 +296,9 @@
         rabbit.x = 1280;
         rabbit.y = 430;
         rabbit.addEventListener("click",function(e){
-            swal("Wieviel Karrote habe ich verloren?", {
-                buttons:{
-                    less: {
-                        text: num+2,
-                        value: "less",
-                    },
-                    right: {
-                        text: num,
-                        value: "right",
-                    },
-                    more:{
-                        text: num+1,
-                        value:"more",
-                    },
-                },
-            })
-            .then((value) =>{
-                switch(value){
-                    case "less" :
-                        swal("schaust du noch mal genau an?");
-                        break;
-                    case "right":
-                        swal("super gemacht!", "du hast richtig geantwortet","success");
-                       setTimeout(back,5000);
-                        break;
-                    default:
-                        swal("schaust du noch mal genau an?");
-                }
-            })
+            window.location.href= "/html/windmill.html";
         });
-        var arr2= [true,false];
-        var num = 0;
-      var c1 = new createjs.Bitmap("/img/lpcarrot1.png");
-       c1.x = 1300;
-       c1.y = 670;
-       c1.rotation = Math.floor(Math.random()*60);
-      var v = arr2[Math.floor(Math.random()*arr2.length)];
-       c1.visible = v;
-       if(v =='1'){
-         num += 1;
-       }
-
-    var c2 = new createjs.Bitmap("/img/lpcarrot1.png");
-       c2.x = 1350;
-       c2.y = 630;
-       c2.rotation = Math.floor(Math.random()*60);
-       var q = arr2[Math.floor(Math.random()*arr2.length)];
-       c2.visible = q;
-      if(q =='1'){
-       num += 1;
-       }
-       var c3 = new createjs.Bitmap("/img/lpcarrot1.png");
-       c3.x = 1400;
-       c3.y = 650;
-       c3.rotation = Math.floor(Math.random()*60);
-       var r = arr2[Math.floor(Math.random()*arr2.length)];
-       c3.visible = r;
-
-       if(r =='1'){
-       num += 1;
-       }
-       var c4 = new createjs.Bitmap("/img/lpcarrot1.png");
-       c4.x = 1320;
-       c4.y = 610;
-       c4.rotation = Math.floor(Math.random()*60);
-       var s = arr2[Math.floor(Math.random()*arr2.length)];
-       c4.visible = s;
-       if(s =='1'){
-       num += 1;
-       }
-       var c5 = new createjs.Bitmap("/img/lpcarrot1.png");
-       c5.x = 1500;
-       c5.y = 580;
-       c5.rotation = Math.floor(Math.random()*60);
-       var t = arr2[Math.floor(Math.random()*arr2.length)];
-       c5.visible = t;
-     if(t =='1'){
-       num +=1;
-       }
-       var c6 = new createjs.Bitmap("/img/lpcarrot1.png");
-       c6.x = 1480;
-       c6.y = 580;
-       c6.rotation = Math.floor(Math.random()*60);
-       var u = arr2[Math.floor(Math.random()*arr2.length)];
-       c6.visible = u;
-     if(u =='1'){
-       num +=1;
-       }
-       var c7 = new createjs.Bitmap("/img/lpcarrot1.png");
-       c7.x = 1520;
-       c7.y = 580;
-       c7.rotation = Math.floor(Math.random()*60);
-       var v = arr2[Math.floor(Math.random()*arr2.length)];
-       c7.visible = v;
-     if(v =='1'){
-       num +=1;
-       }
-       var c8 = new createjs.Bitmap("/img/lpcarrot1.png");
-       c8.x = 1550;
-       c8.y = 580;
-       c8.rotation = Math.floor(Math.random()*60);
-       var w = arr2[Math.floor(Math.random()*arr2.length)];
-       c8.visible = w;
-     if(w =='1'){
-       num +=1;
-       }
+    
         
 
        // reading
@@ -468,14 +365,7 @@
         stage.addChild(app14);
         stage.addChild(app15);
 
-        stage.addChild(c1);
-        stage.addChild(c2);
-        stage.addChild(c3);
-        stage.addChild(c4);
-        stage.addChild(c5);
-        stage.addChild(c6);
-        stage.addChild(c7);
-        stage.addChild(c8);
+      
 
         stage.addChild(read);
         stage.addChild(park);

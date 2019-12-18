@@ -51,10 +51,18 @@
             swal("try again carefully?");
         });
       
+
+         var back = new createjs.Bitmap("/img/left.png");
+         back.x = 1000;
+         back.y = 10;
+         back.addEventListener("click",function(e){
+            window.location.href= "/html/tree.html";
+         });
         stage.addChild(txt);
         stage.addChild(rightAn);
         stage.addChild(false1);
         stage.addChild(false2);
+        stage.addChild(back);
 
  
         createjs.Ticker.setFPS(60);
