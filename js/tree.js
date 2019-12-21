@@ -327,16 +327,7 @@
     cloud.x = 975;
     cloud.y = -5;
     cloud.addEventListener("click",function(e){
-       cloud.x += 100;
-       if(cloud.x > 1100 || cloud.x < 700){
-           img.src = "/img/cloud.png";
-       } else{
-        img.src = "/img/thunder.png";
-       }
-     
-       if(cloud.x > 1200){
-           cloud.x = 100;
-       }
+        window.location.href= "/html/cloud.html";
     });
 
 
