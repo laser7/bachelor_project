@@ -60,7 +60,7 @@ function init(){
         }
       });
       monster1 = new createjs.Sprite(dataMonster1, "walk");  
-      monster1 .x = 1500;
+      monster1 .x = 500;
       monster1. y = 200;
       function monster1Move(){
         monster1.x -= speed;
